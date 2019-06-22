@@ -34,11 +34,33 @@ public:
 
     virtual bool init();
     
+	//cocos2d::Sprite* sprite;
+	//cocos2d::Sprite* sprite2;
+
+
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
     
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
+	//sorite ≈‰¡–
+	cocos2d::Sprite* sprite[100];
+
+	void update(float delta) override;
+
+	/*float angle = 0;
+
+	float redAlpha=255.0f;
+
+	float blueAlpha=0.0f;
+
+	float spriteAlpha=255;
+	float spriteAddAlpha=-3;
+ 
+	float demoSpriteAlpha=0;
+	float demoSpriteAddAlpha=3;*/
+
+	//Vec2 addPosition ;
 };
 
-#endif // __HELLOWORLD_SCENE_H__
+#endif // __HELLOWORLD_SCENE_H___

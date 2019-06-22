@@ -116,9 +116,95 @@ bool HelloWorld::init()
     //    this->addChild(sprite, 0);
     //}
 	//テクスチャファイル名を指定して、スプライトを作成
-	Sprite* sprite = Sprite::create("image.png");
-	//シーングラフにつなぐ
-	this->addChild(sprite);
+	/*sprite[0] = Sprite::create("sample06.png");
+	this->addChild(sprite[0]);
+	sprite[0]->setScale(3);
+	sprite[0]->setTextureRect(Rect(0, 32, 32, 32));
+	sprite[0]->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+	MoveBy* action1 = MoveBy::create(2.0f, Vec2(200, 100));
+	sprite[0]->runAction(action1);*/
+	//乱数の初期化
+	//Random r=new Random();
+	srand(time(nullptr));
+
+	for (int i = 0; i < 5; i++)
+	{
+		sprite[i] = Sprite::create("sample06.png");
+		this->addChild(sprite[i]);
+		sprite[i]->setTextureRect(Rect(0, 32, 32, 32));
+		sprite[i]->setScale(3);
+		sprite[i]->setPosition(Vec2(100*i, visibleSize.height / 2));
+
+		float mx, my;
+
+		mx = (float)rand()/RAND_MAX*600;
+		my = (float)rand()/RAND_MAX*600;
+
+		MoveBy* action1 = MoveBy::create(10.0f, Vec2(mx, my));
+		sprite[i]->runAction(action1);
+	}
+
+	//sprite2 = Sprite::create("sample06.png");
+	//demoSprite = Sprite::create("sample09.png");
+
+
+	//demoSprite->setPosition(Vec2(visibleSize.width/2, visibleSize.height/2));
+	//
+	////sprite->setRotation(45.0f);
+	//sprite->setScale(3);
+	//demoSprite->setScale(3);
+	////不透明度
+	//sprite->setOpacity(255);
+	//demoSprite->setOpacity(0);
+
+	////アンカーポイント　
+	//sprite->setAnchorPoint(Vec2(0.5f, 0.5f));
+	//demoSprite->setAnchorPoint(Vec2(0.5f, 0.5f));
+	//色変更
+	//sprite->setColor(Color3B(255, 0, 0));
+    //左右反転
+	//sprite->setFlippedX(true);
+    //表示幅
+	//sprite->setTextureRect(Rect(0, 32, 32, 32));
+	//sprite2->setTextureRect(Rect(32, 32, 32, 32));
+
+	////demoSprite->setTextureRect(Rect(0, 32, 32, 32));
+	////方向回転
+	////sprite->setRotation(180);
+	////sprite->setScaleY(-1);
+
+	////シーングラフにつなぐ
+	//this->addChild(sprite);
+	//this->addChild(sprite2);
+	////this->addChild(demoSprite);
+
+	////this->scheduleUpdate();
+	//sprite->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+	//sprite2->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+
+	//sprite->setScale(3);
+	//sprite2->setScale(3);
+
+	//MoveBy* action1 = MoveBy::create(2.0f, Vec2(200, 100));
+	////加速
+	//EaseIn* action2 = EaseIn::create(action1, 5.0f);
+
+	//MoveBy* action3 = MoveBy::create(2.0f, Vec2(-200, -100));
+	////加速
+	//EaseIn* action4 = EaseIn::create(action3, 5.0f);
+	//EaseBounceIn* action2 = EaseBounceIn::create(action1);
+	//ScaleBy* action1 = ScaleBy::create(1.0f, 5.0f);
+	//JumpTo* action1 = JumpTo::create(1.5f, Vec2(200, 100), 500.0f, 1);
+	/*ccBezierConfig conf;
+	conf.controlPoint_1 = Vec2(500, 500);
+	conf.controlPoint_2 = Vec2(500, 100);
+	conf.endPosition = Vec2(200, 100);
+	BezierTo* action1 = BezierTo::create(3.0f, conf);*/
+
+	//*sprite->setOpacity(0);
+	//FadeIn* action1 = FadeIn::create(1.0f);*/
+	//sprite->runAction(action2);
+	//sprite2->runAction(action2->clone());
     return true;
 }
 
@@ -135,4 +221,56 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
     //_eventDispatcher->dispatchEvent(&customEndEvent);
 
 
+}
+void HelloWorld::update(float delta) {
+
+	//Vec2 pos = sprite->getPosition();
+	//pos += Vec2(1.0f, 1.0f);
+	//sprite->setPosition(pos);
+
+	//左上を中心に回転
+    /*angle += 5;
+	sprite->setRotation(angle);*/
+
+
+	//色を変更
+	//redAlpha-= 255.0f/180;
+	//if (redAlpha<5.0f)
+	//{
+	//	redAlpha = 0.0f;
+	//}
+	//blueAlpha += 255.0f / 180;
+	//if (blueAlpha>250.0f)
+	//{
+	//	blueAlpha = 255.0f;
+	//}
+	//
+	//sprite->setColor(Color3B(redAlpha, 0, blueAlpha));
+
+
+	//クロスフェード
+	/*spriteAlpha += spriteAddAlpha;
+	sprite->setOpacity(spriteAlpha);
+
+	demoSpriteAlpha += demoSpriteAddAlpha;
+	demoSprite->setOpacity(demoSpriteAlpha);
+	if (spriteAlpha==255||spriteAlpha==0)
+	{
+		spriteAddAlpha = -spriteAddAlpha;
+	}
+	if (demoSpriteAlpha==255|| demoSpriteAlpha == 0)
+	{
+		demoSpriteAddAlpha = -demoSpriteAddAlpha;
+	}*/
+
+
+	//左右回復
+
+	//Vec2 pos = sprite->getPosition();
+	//if (pos.x> 1280.0f - 32.0f||pos.x<32.0f)
+	//{
+	//	addPosition = -addPosition;
+	//}
+	//pos += addPosition;
+	//sprite->setPosition(pos);
 }
